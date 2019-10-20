@@ -3,6 +3,7 @@ name = "grades-rs"
 version = "0.1.0"
 authors = ["Tobias Kerst <tobias.kerst@tobscore.com>"]
 edition = "2018"
+license = "MIT"
 
 [lib]
 name = "grades"
