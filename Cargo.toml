@@ -9,5 +9,5 @@ name = "grades"
 path = "src/lib.rs"
 
 [[bin]]
-name = "grades-bin"
+name = "grade-avg"
 path = "src/bin.rs"
