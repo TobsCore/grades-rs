@@ -38,9 +38,9 @@ impl Grade {
     }
 }
 
-pub fn avg(grade_list: &Vec<Grade>) -> Grade {
-    if grade_list.len() > 0 {
-        let acc = grade_list.iter().fold(0, |sum, i| sum + i.val);
+pub fn avg(grade_list: &[Grade]) -> Grade {
+    if !grade_list.is_empty() {
+        let acc: usize = grade_list.iter().map(|e| e.val).sum();
         let grade = (acc / grade_list.len()) as usize;
         Grade { val: grade }
     } else {
@@ -48,13 +48,10 @@ pub fn avg(grade_list: &Vec<Grade>) -> Grade {
     }
 }
 
-pub fn avg_prec(grade_list: &Vec<Grade>) -> f64 {
+pub fn avg_prec(grade_list: &[Grade]) -> f64 {
     if !grade_list.is_empty() {
-        let acc = grade_list
-            .iter()
-            .map(|grade| grade.val)
-            .fold(0, |sum, i| sum + i) as f64;
-        acc / (10.0 * grade_list.len() as f64)
+        let acc: usize = grade_list.iter().map(|grade| grade.val).sum();
+        (acc as f64) / (10.0 * grade_list.len() as f64)
     } else {
         0.0
     }
