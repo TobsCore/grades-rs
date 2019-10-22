@@ -35,6 +35,11 @@ fn test_avg_two() {
     assert_eq!(expected, grades::avg(&[new_grade("1.0"), new_grade("2.0")]));
 }
 
+#[test]
+fn test_print_correct_grade() {
+    assert_eq!("sehr gut", new_grade("1.0").verbal());
+}
+
 fn new_grade(input: &str) -> Grade {
     Grade::from(input).unwrap()
 }
