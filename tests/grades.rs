@@ -46,7 +46,9 @@ fn test_avg_two() {
 
 #[test]
 fn test_print_correct_grade() {
-    assert_eq!("sehr gut", new_grade("1.0").verbal());
+    assert_eq!("very good", new_grade("1.0").verbal());
+    assert_eq!("very good", new_grade("1.5").verbal());
+    assert_ne!("very good", new_grade("1.6").verbal());
 }
 
 fn new_grade(input: &str) -> Grade {

@@ -33,15 +33,15 @@ impl Grade {
 
     pub fn verbal(&self) -> &str {
         if self.val >= 10 && self.val < 16 {
-            "sehr gut"
+            "very good"
         } else if self.val >= 16 && self.val < 25 {
-            "gut"
+            "good"
         } else if self.val >= 26 && self.val < 35 {
-            "befriedigent"
+            "satisfactory"
         } else if self.val >= 36 && self.val < 41 {
-            "ausreichend"
+            "sufficient"
         } else if self.val >= 41 && self.val <= 50 {
-            "nicht ausreichend"
+            "not sufficient"
         } else {
             unreachable!()
         }

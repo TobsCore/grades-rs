@@ -27,7 +27,7 @@ fn main() -> Result<(), std::io::Error> {
             grades::avg_prec(&grades).unwrap_or(0.0)
         );
     } else {
-        eprintln!("Konnte Durchschnitt nicht berechnen.")
+        eprintln!("Could not calculate average")
     }
     Ok(())
 }
