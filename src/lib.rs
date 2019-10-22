@@ -43,7 +43,7 @@ impl Grade {
         } else if self.val >= 41 && self.val <= 50 {
             "nicht ausreichend"
         } else {
-            "keine Note"
+            unreachable!()
         }
     }
 }
