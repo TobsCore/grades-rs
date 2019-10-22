@@ -15,17 +15,20 @@ fn main() -> Result<(), std::io::Error> {
     for arg in input {
         match Grade::from(&arg) {
             Ok(grade) => grades.push(grade),
-            Err(e) => eprintln!("Error: Could not parse '{}': {}", arg, e),
+            Err(_) => eprintln!("Ignoring {}, because it cannot be parsed", arg),
         }
     }
 
-    let avg_grade = grades::avg(&grades);
-    println!(
-        "{1}, {0} <{2:.5}>",
-        avg_grade,
-        avg_grade.verbal(),
-        grades::avg_prec(&grades)
-    );
+    if let Some(avg_grade) = grades::avg(&grades) {
+        println!(
+            "{1}, {0} <{2:.5}>",
+            avg_grade,
+            avg_grade.verbal(),
+            grades::avg_prec(&grades).unwrap_or(0.0)
+        );
+    } else {
+        eprintln!("Konnte Durchschnitt nicht berechnen.")
+    }
     Ok(())
 }
 

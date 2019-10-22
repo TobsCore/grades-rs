@@ -17,22 +17,31 @@ fn test_parse_comma() {
 }
 
 #[test]
+fn test_parse_out_of_bounds() {
+    match Grade::from("6.0") {
+        Ok(_) => assert!(false, "Should be out of bounds"),
+        Err(_) => assert!(true),
+    }
+}
+#[test]
 fn test_avg_single() {
     let grade = new_grade("1.3");
     let grade_list = [grade];
-    assert_eq!(grade, grades::avg(&grade_list));
+    assert_eq!(Some(grade), grades::avg(&grade_list));
 }
 
 #[test]
 fn test_avg_none() {
-    let expected = new_grade("0.0");
-    assert_eq!(expected, grades::avg(&[]));
+    assert_eq!(None, grades::avg(&[]));
 }
 
 #[test]
 fn test_avg_two() {
     let expected = new_grade("1.5");
-    assert_eq!(expected, grades::avg(&[new_grade("1.0"), new_grade("2.0")]));
+    assert_eq!(
+        Some(expected),
+        grades::avg(&[new_grade("1.0"), new_grade("2.0")])
+    );
 }
 
 #[test]
