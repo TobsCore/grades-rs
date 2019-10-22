@@ -16,7 +16,7 @@ impl fmt::Display for Grade {
 
 impl Grade {
     pub fn from(input: &str) -> Result<Grade, ParseFloatError> {
-        let parsed_val = input.parse::<f32>()?;
+        let parsed_val = input.replace(",", ".").parse::<f32>()?;
         let val = (parsed_val * 10.0) as usize;
         Ok(Grade { val })
     }
