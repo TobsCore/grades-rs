@@ -1,4 +1,5 @@
 # Simple Grade Calculator #
+[![Build Status](https://travis-ci.com/TobsCore/grades-rs.svg?branch=master)](https://travis-ci.com/TobsCore/grades-rs)
 
 This tool is a simple grade average calulcation program, that is written in Rust. The logic for grade calculations, are encapsulated as a library and therefore be used by other applications. It takes a list of graded to calculated the average.
 

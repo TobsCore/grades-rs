@@ -5,6 +5,9 @@ authors = ["Tobias Kerst <tobias.kerst@tobscore.com>"]
 edition = "2018"
 license = "MIT"
 
+[badges]
+travis-ci = { repository = "TobsCore/grades-rs" }
+
 [lib]
 name = "grades"
 path = "src/lib.rs"
