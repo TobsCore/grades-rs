@@ -2,7 +2,7 @@ use std::fmt;
 use std::num::ParseFloatError;
 //let strict_grades: Vec<f32> = vec![1.0, 1.3, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.7, 4.0, 4.3, 4.7, 5.0];
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub struct Grade {
     val: usize,
 }
@@ -11,6 +11,12 @@ impl fmt::Display for Grade {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let out_val = (self.val as f32) / 10.0;
         write!(f, "{:.1}", out_val)
+    }
+}
+
+impl PartialEq for Grade {
+    fn eq(&self, other: &Self) -> bool {
+        self.val == other.val
     }
 }
 
